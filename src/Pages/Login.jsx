@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from "../Providers/AuthProvider";
 import Navbar from './../Components/Navbar';
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -21,6 +22,14 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result)
+                // toast
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Successfully login',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 // navigate
                 navigate(location?.state ? location.state : '/')
 

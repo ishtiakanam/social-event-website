@@ -11,10 +11,10 @@ const SingleService = ({ service }) => {
                 <div className="card-body items-center text-center">
                     <h2 className="card-title">{category}</h2>
                     <p>{description}</p>
-                    <p>{price}</p>
+                    <p>${price}</p>
                     <Link to={`/service/${id}`}>
                         <div className="card-actions">
-                            <button className="btn btn-primary">Buy Now</button>
+                            <button className="btn btn-primary">Add to cart</button>
                         </div>
                     </Link>
                 </div>

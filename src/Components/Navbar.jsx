@@ -6,15 +6,6 @@ import { AuthContext } from "../Providers/AuthProvider";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
     console.log(user);
-    // const handleLogOut = () => {
-    //     logOut()
-    //         .then(result => {
-    //             console.log(result);
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         })
-    // }
     const handleSignOut = () => {
         logOut()
             .then()
@@ -23,6 +14,12 @@ const Navbar = () => {
     const links = <>
         <li><NavLink
             to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Home</NavLink>
+        </li>
+        <li><NavLink
+            to="/service" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Service</NavLink>
+        </li>
+        <li><NavLink
+            to="/photo" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Photo</NavLink>
         </li>
         <li><NavLink
             to="/register" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Register</NavLink>
@@ -43,7 +40,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl">Social Events</a>
+                <a className="btn btn-ghost normal-case text-3xl text-blue-950">Social Events</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -53,8 +50,9 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
+                        <img src={user.photoURL} alt="" />
                         <p>{user.email}</p>
-                        <button onClick={handleSignOut} className="btn">Sign Out</button>
+                        <button onClick={handleSignOut} className="btn">Log Out</button>
                     </>
                         : <Link to='/login'>
                             <button className="btn">Login</button>

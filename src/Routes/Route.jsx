@@ -1,3 +1,4 @@
+import PhotoArea from '../Components/PhotoArea';
 import ServiceCard from '../Components/ServiceCard';
 import ErrorPage from '../Pages/ErrorPage';
 import Home from '../Pages/Home';
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/service/:id',
-                element: <ServiceCard></ServiceCard>,
+                element: <PrivateRoute><ServiceCard></ServiceCard></PrivateRoute>,
                 loader: () => fetch('/data.json')
             },
             {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/photo',
+                element: <PrivateRoute><PhotoArea></PhotoArea></PrivateRoute>
             },
         ]
     },

@@ -1,12 +1,22 @@
+import Swal from "sweetalert2";
 import Navbar from "./Navbar";
 
 /* eslint-disable react/prop-types */
 const SingleServiceDetails = ({ card }) => {
     const { image, category, price, description } = card || {};
+    const handleSuccess = () => {
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Successfully added card',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
     return (
         <div>
             <Navbar></Navbar>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-[40%] mx-auto bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img src={image} alt="Shoes" className="rounded-xl" />
                 </figure>
@@ -16,7 +26,7 @@ const SingleServiceDetails = ({ card }) => {
                     <p>${price}</p>
                     {/* <Link to={`/service/${id}`}> */}
                     <div className="card-actions">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button onClick={handleSuccess} className="btn btn-primary">Add to cart</button>
                     </div>
                     {/* </Link> */}
                 </div>

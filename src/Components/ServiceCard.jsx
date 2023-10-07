@@ -10,7 +10,7 @@ const ServiceCard = () => {
         setCard(card)
     }, [id, loadData])
     return (
-        <div>
+        <div >
             <SingleServiceDetails card={card}></SingleServiceDetails>
         </div>
     );
