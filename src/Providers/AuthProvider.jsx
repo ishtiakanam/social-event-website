@@ -8,30 +8,48 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const provider = new GoogleAuthProvider();
-
+    // console.log({ user });
     const createUser = (email, password) => {
         console.log({ email, password });
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    // useEffect(() => {
+    //     const tempUser = localStorage.getItem('user');
+    //     if (tempUser) {
+    //         setUser(JSON.parse(tempUser))
+    //     }
+    // }, [])
+
     useEffect(() => {
+        const tempUser = localStorage.getItem('user');
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser)
+            if (currentUser) {
+                setUser(currentUser)
+            }
+            if (tempUser) {
+                setUser(JSON.parse(tempUser))
+            }
         })
         return () => {
+
             unSubscribe()
         }
     }, [])
 
     const signIn = (email, password) => {
-        console.log({ email, password });
+        // console.log({ email, password });
         return signInWithEmailAndPassword(auth, email, password)
+        // const test = signInWithEmailAndPassword(auth, email, password);
+        // console.log({ test });
+
     }
 
     const googleLogIn = () => {
         return signInWithPopup(auth, provider)
             .then(result => {
                 console.log(result);
+                localStorage.setItem("user", JSON.stringify(result.user));
             })
             .catch(err => console.log(err))
     }
@@ -40,6 +58,8 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
             .then(result => {
                 console.log(result);
+                localStorage.removeItem('user');
+                setUser()
             })
             .catch(err => {
                 console.log(err);
@@ -54,7 +74,6 @@ const AuthProvider = ({ children }) => {
         logOut,
         googleLogIn
     }
-
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

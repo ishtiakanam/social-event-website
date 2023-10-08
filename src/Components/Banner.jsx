@@ -7,7 +7,7 @@ const Banner = () => {
                 <div className="max-w-md text-white">
                     <h1 className="mb-5 text-5xl font-bold">Hey Welcome to our website.</h1>
                     <p className="mb-5">Here you may purches many types of parties.Here are different type of parties name showes in the services section..</p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <button className="btn text-purple-600 font-bold">Get Started</button>
                 </div>
             </div>
         </div>

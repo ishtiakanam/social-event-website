@@ -2,16 +2,32 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+import Swal from "sweetalert2";
 
 const Register = () => {
 
     const { createUser } = useContext(AuthContext)
     const navigate = useNavigate()
+    const isValidPassword = (password) => {
+        if (password.length < 6) {
+            return false;
+        }
+
+        if (!/[A-Z]/.test(password)) {
+            return false;
+        }
+
+        if (!/[^a-zA-Z0-9]/.test(password)) {
+            return false;
+        }
+        return true;
+    }
     const handleRegister = e => {
         e.preventDefault()
         // const email = e.target.email.value
         // const password = e.target.password.value
-        console.log(e.currentTarget);
+        // console.log(e.currentTarget);
         const form = new FormData(e.currentTarget)
         const name = form.get('name')
         const photo = form.get('photo')
@@ -19,12 +35,22 @@ const Register = () => {
         const password = form.get('password')
         console.log(name, photo, email, password);
         // console.log(form.get('password'))
+        if (!isValidPassword(password)) {
+            //show toast
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Password',
+                text: 'Password must be at least 6 characters long,at least one upper case or lower case.',
 
+            })
+            return false
+        }
         // crate user
         createUser(email, password)
             .then(result => {
                 console.log(result);
                 navigate(location?.state ? location.state : '/login')
+
             })
             .catch(err => {
                 console.log(err);
@@ -34,24 +60,24 @@ const Register = () => {
         <div>
             <Navbar></Navbar>
             <div>
-                <h2 className="text-2xl my-10 text-center">Register please</h2>
+                <h2 className="text-2xl my-10 text-center text-purple-600">Register please</h2>
 
                 <form onSubmit={handleRegister} className="md:w-3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text text-purple-600 font-bold">Name</span>
                         </label>
                         <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text text-purple-600 font-bold">Email</span>
                         </label>
                         <input type="email" name="email" placeholder="Email" className="input input-bordered" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Password</span>
+                            <span className="label-text text-purple-600 font-bold">Password</span>
                         </label>
                         <input type="password" name="password" placeholder="Password" className="input input-bordered" required />
                         <label className="label">
@@ -59,12 +85,12 @@ const Register = () => {
                         </label>
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-primary">Register</button>
+                        <button className="btn btn-primary ">Register</button>
                     </div>
                 </form>
                 <p className="text-center mt-2">Already have an account?<Link className="text-blue-700 font-bold" to='/login'>Login</Link></p>
             </div>
-
+            <Footer></Footer>
         </div>
     );
 };

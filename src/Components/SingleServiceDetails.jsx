@@ -21,7 +21,7 @@ const SingleServiceDetails = ({ card }) => {
                     <img src={image} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">{category}</h2>
+                    <h2 className="card-title text-purple-600 font-bold">{category}</h2>
                     <p>{description}</p>
                     <p>${price}</p>
                     {/* <Link to={`/service/${id}`}> */}

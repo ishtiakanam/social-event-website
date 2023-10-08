@@ -8,7 +8,6 @@ import Organized from "../Components/Organized";
 
 const Home = () => {
     const loadData = useLoaderData()
-    // console.log(loadData);
     return (
         <div>
             <Navbar></Navbar>

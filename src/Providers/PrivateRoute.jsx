@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "./AuthProvider";
-// import { Navigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
     const { user } = useContext(AuthContext)
-    console.log(location.pathname);
+    const tempUser = localStorage.getItem('user');
 
-    if (user) {
+    console.log({ user });
+    // console.log(location.pathname);
+
+    if (user || tempUser) {
         return children
     }
 

@@ -4,8 +4,8 @@ import { FaFacebook, FaInstagramSquare, FaTwitter } from 'react-icons/fa';
 const AboutUs = () => {
     return (
         <div>
-            <h2 className='text-4xl text-center py-10 font-bold'>About us</h2>
-            <div className="relative  flex items-center w-full h-[50%] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <h2 className='text-4xl text-center py-10 font-bold text-purple-600'>About us</h2>
+            <div className="relative  flex items-center w-full h-[50%] flex-col md:flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                 <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                     <img
                         src={picture}
@@ -16,9 +16,9 @@ const AboutUs = () => {
                     <h6 className="mb-4 block font-sans text-base font-semibold uppercase leading-relaxed tracking-normal text-pink-500 antialiased">
                         Let's know what we done ..
                     </h6>
-                    <h4 className="mb-2 block font-sans text-3xl font-bold leading-snug tracking-normal text-blue-gray-900 antialiased ">
+                    {/* <h4 className="mb-2 block font-sans text-3xl font-bold leading-snug tracking-normal text-blue-gray-900 antialiased ">
                         About Us
-                    </h4>
+                    </h4> */}
                     <p className="mb-8 block font-sans text-base font-semibold leading-relaxed text-gray-700 antialiased">
                         1.We work in many different events like Weeding,Birthday parties,Baby shower etc etc programmes. <br />
                         <br />

@@ -2,30 +2,32 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { AuthContext } from "../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log(user);
+
     const handleSignOut = () => {
+
         logOut()
             .then()
             .catch()
     }
     const links = <>
         <li><NavLink
-            to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Home</NavLink>
+            to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-purple-600 underline font-bold" : ""}>Home</NavLink>
         </li>
         <li><NavLink
-            to="/service" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Service</NavLink>
+            to="/service" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-purple-600 underline font-bold" : ""}>Service</NavLink>
         </li>
         <li><NavLink
-            to="/photo" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Photo</NavLink>
+            to="/photo" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-purple-600 underline font-bold" : ""}>Photo</NavLink>
         </li>
         <li><NavLink
-            to="/register" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Register</NavLink>
+            to="/register" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-purple-600 underline font-bold" : ""}>Register</NavLink>
         </li>
         <li><NavLink
-            to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-[#51ea49] underline" : ""}>Login</NavLink>
+            to="/login" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-purple-600 underline font-bold" : ""}>Login</NavLink>
         </li>
 
     </>
@@ -40,7 +42,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-3xl text-blue-950">Social Events</a>
+                <a className="btn btn-ghost normal-case font-bold text-3xl text-purple-600">Social Events</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -50,8 +52,8 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                        <img src={user.photoURL} alt="" />
-                        <p>{user.email}</p>
+                        <img className="w-10 rounded-full mr-2" src={user.photoURL} alt="" />
+                        <p className="mr-2">{user.email}</p>
                         <button onClick={handleSignOut} className="btn">Log Out</button>
                     </>
                         : <Link to='/login'>
