@@ -6,10 +6,17 @@ import Swal from "sweetalert2";
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, googleLogIn } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
     console.log(location);
+
+    const handleGoogleLogIn = () => {
+        googleLogIn()
+            .then()
+            .catch()
+    }
+
     const handleLogin = e => {
         e.preventDefault()
         // const email = e.target.email.value
@@ -41,7 +48,6 @@ const Login = () => {
             <Navbar></Navbar>
             <div>
                 <h2 className="text-2xl my-10 text-center">Login please</h2>
-
                 <form onSubmit={handleLogin} className="md:w-3/4 lg:w-1/2 mx-auto">
                     <div className="form-control">
                         <label className="label">
@@ -62,6 +68,10 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
+                <hr className="my-5" />
+                <div className=" text-center">
+                    Or, <button onClick={handleGoogleLogIn} className="text-blue-600 font-bold btn">Log in with Google</button>
+                </div>
                 <p className="text-center mt-2">Don not have an account.Please <Link className="text-blue-700 font-bold" to='/register'>Register</Link></p>
             </div>
 

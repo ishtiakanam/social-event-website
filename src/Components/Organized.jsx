@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import image1 from '../../public/images/family.jpeg'
 import image2 from '../../public/images/mehedi2.jpeg'
+import image3 from '../../public/images/biya.jpeg'
 const Organized = () => {
     return (
         <div className='py-10 max-w-6xl mx-auto'>
@@ -29,6 +30,21 @@ const Organized = () => {
                     <div className="p-6">
                         <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                             Mehedi function
+                        </h5>
+                        <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+                            The place is close to Barceloneta Beach and bus stop just 2 min by walk
+                            and near to "Naviglio" where you can enjoy the main night life in
+                            Barcelona.</p>
+                    </div>
+                </div>
+                {/* 3 */}
+                <div className="relative flex py-10 h-full flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                    <div className="relative mx-4 -mt-6 h-56 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40">
+                        <img className='w-full' src={image3} alt="img-blur-shadow" />
+                    </div>
+                    <div className="p-6">
+                        <h5 className="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            Weeding function
                         </h5>
                         <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
                             The place is close to Barceloneta Beach and bus stop just 2 min by walk
