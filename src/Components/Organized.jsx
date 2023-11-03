@@ -17,9 +17,7 @@ const Organized = () => {
                             Family function
                         </h5>
                         <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                            The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                            and near to "Naviglio" where you can enjoy the main night life in
-                            Barcelona.</p>
+                            This is the photo of our Family function project.It was a great experience for us.We have arraged this huge programme within 4 days.We have to do hard word for this project.This was held on the previous year at December.</p>
                     </div>
                 </div>
                 {/* 2 */}
@@ -32,9 +30,7 @@ const Organized = () => {
                             Mehedi function
                         </h5>
                         <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                            The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                            and near to "Naviglio" where you can enjoy the main night life in
-                            Barcelona.</p>
+                            This is the photo of our Mehedi function project.It was a great experience for us.We have arraged this huge programme within 4 days.We have to do hard word for this project.This was held on the previous year at July at 2023.</p>
                     </div>
                 </div>
                 {/* 3 */}
@@ -47,9 +43,7 @@ const Organized = () => {
                             Weeding function
                         </h5>
                         <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
-                            The place is close to Barceloneta Beach and bus stop just 2 min by walk
-                            and near to "Naviglio" where you can enjoy the main night life in
-                            Barcelona.</p>
+                            This is the photo of our Weeding function project.It was a great experience for us.We have arraged this huge programme within 4 days.We have to do hard word for this project.This was held on the this year at January on 2024.</p>
                     </div>
                 </div>
             </div>
